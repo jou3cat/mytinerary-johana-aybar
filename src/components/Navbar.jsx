@@ -15,7 +15,7 @@ export default function Navbar() {
         <p className='text-[20px] px-2 w-[80px] text-center mx-1 '>Cities</p>
         <p className='text-[20px] px-2 w-[80px] text-center mx-1 '>Login</p>
       </div>):(null)}
-      
+      <h1 className=' text-pink-500 font-semibold grow flex flex-col items-end text-[30px] px-2 w-[150px] mx-1 ' >MyTINERARIES</h1>
     </header>
   )
 }
