@@ -1,9 +1,10 @@
 
-import Arrow from "../components/Arrow"
-import Card from "../components/Card"
+import Carrousel from "../components/Carrousel"
+import { useState } from "react"
 
 
 export default function Home() {
+    const[show, setShow]=useState(true)
     
     const cities =[
         {
@@ -130,14 +131,11 @@ export default function Home() {
     ]
 
   return (
-    
-     <div className='flex justify-center items-center'>
-     <Arrow direction="M15.75 19.5L8.25 12l7.5-7.5" />
-     <div className='flex w-11/12 flex-wrap justify-center mt-5' >
-      {cities.slice(0,4).map(each=> <Card src={each.photo} alt={each.id} text_city={each.city} text_country={each.country} />)}
-    
-     </div>
-      <Arrow direction="M8.25 4.5l7.5 7.5-7.5 7.5" />
-      </div>
+    <div>
+ 
+    {show ? (<input type="button" onClick={()=>setShow(!show)} value="hide" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"/>):(<input type="button" onClick={()=>setShow(!show)} value="show" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"/>)}
+    {show ? <Carrousel cities={cities}/> : <h1 className="text-[24px]">haz click aquí para ver los mejores destinos</h1>}
+   
+    </div>
   )
 }
