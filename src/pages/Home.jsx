@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import Carrousel from "../components/Carrousel";
 import axios from "axios";
-
+import apiUrl from "../apiUrl"
 
 export default function Home() {
     const[show, setShow]=useState(true)
     const[data, setData]=useState([])
+  
     
     
   //acá estaba harcodeado el arreglo de ciudades const cities
   useEffect( 
     ()=>{
-        axios('/data.json')
-        .then(res=>setData(res.data))
+        axios(apiUrl + 'cities/carousel')
+        //.then(res=>console.log(res.data.data_carousel))
+        .then(res=>setData(res.data.data_carousel))
         .catch(err=>console.log(err))
     },//callback que no debe retornar nada y no debe ser asincrona
     []          //array de dependencias
