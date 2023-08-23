@@ -1,16 +1,13 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from "../components/Navbar";
+import { Outlet } from "react-router-dom";
 
-export default function NavLayout({children}) {
+
+export default function NavLayout() {
   return (
-
-    <div className='w-full min-h-screen bg-gray-900 flex flex-col text-white'>
-    
-        <Navbar/>
-        {children}
-        
+    <div className="w-full min-h-screen bg-red-500 flex flex-col">
+      <Navbar />
+      {/* contenido dinamico */}
+      <Outlet />
     </div>
-
-    
-  )
+  );
 }
