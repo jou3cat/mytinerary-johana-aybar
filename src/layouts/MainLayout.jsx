@@ -4,10 +4,13 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import {Outlet} from 'react-router-dom'
 
-export default function MainLayout({children}) {
+export default function MainLayout() {
     
   return (
-    <div className='w-full min-h-screen bg-gray-900 flex flex-col'>
+    <div className='w-full min-h-screen bg-gray-900 flex flex-col 
+    sm:bg-gray-500
+    md:bg-gray-700
+    lg:bg-gray-900'>
     < Navbar/>
      {/*Acá se debe insertar el contenido dinámico de cada vista */}   
      < Outlet/>
