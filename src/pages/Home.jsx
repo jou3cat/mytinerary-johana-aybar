@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div className=" grow flex flex-col bg-gray-900 items-center">
  
-   {show ? (<input type="button" onClick={()=>setShow(!show)} value="hide" className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full "/>):(<input type="button" onClick={()=>setShow(!show)} value="show" className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full"/>)}
+  
    {show ? <Carrousel data={data}/> : <h1 className="text-[24px] text-white">Find your perfect trip, designed by insiders who know and love their cities!</h1>}
    
     </div>
