@@ -37,11 +37,11 @@ export default function Cities() {
         />
         <div className=" flex flex-wrap">
           {cities.map((each) => (
-            <CityCard key={each.id} city={each}
+            <CityCard key={each._id} city={each}
             src={each.photo}
-            alt={each.id}
+            alt={each._id}
             text={each.city}
-            id={each.id}
+            id={each._id}
 
             />
           ))}

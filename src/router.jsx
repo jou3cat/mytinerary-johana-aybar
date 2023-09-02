@@ -34,6 +34,11 @@ const router = createBrowserRouter([
   {
     path: "/itineraries",
     element: <Itineraries />
+  },
+
+  {
+    path: "/city/:city_id",
+    element: <CityDetails />
   }
 
 ]);
