@@ -21,7 +21,9 @@ const router = createBrowserRouter([
         { path: "/home", element: <Home />},
         { path: "/cities", element: <Cities />},
         { path: "/login", element: <Login />},
-        { path: "/city/:city_id", element: <CityDetails />}
+        { path: "/city/:city_id", element: <CityDetails />},
+        { path: "/itineraries/:city_id", element: <Itineraries />}
+      
     ], 
   },
   {
@@ -32,7 +34,7 @@ const router = createBrowserRouter([
     }],
   },
   {
-    path: "/itineraries",
+    path: "/itineraries/:city_id",
     element: <Itineraries />
   },
 
