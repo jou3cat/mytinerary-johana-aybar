@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import {Link as Anchor} from 'react-router-dom';
+import NoItineraries from '../components/NoItineraries';
 
 export default function Itineraries() {
   const { city_id } = useParams();
@@ -47,9 +48,9 @@ export default function Itineraries() {
 
   if (itineraryData.length===0) {
     return (
-      <div className='text-white'>
-        <p>There are no itineraries</p>
-      </div>
+       <div className='text-white'>
+         <NoItineraries/>
+       </div>
     )
   } else{
    
@@ -180,7 +181,7 @@ export default function Itineraries() {
 
           </>
         ) : (
-          <p>There are no itineraries</p>
+          <NoItineraries/>
         )}
       </div>
       </div>
