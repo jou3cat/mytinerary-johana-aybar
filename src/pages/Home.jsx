@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Carrousel from "../components/Carrousel";
+
 import { Link as Anchor } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import actionsCity from "../storeRedux/actionRedux/cities";
@@ -55,5 +56,6 @@ export default function Home() {
           </div>
         </div>
       </div>
+
   );
 }

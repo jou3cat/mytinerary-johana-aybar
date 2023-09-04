@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+
 import CityCard from '../components/CityCard.jsx';
 import { useSelector,useDispatch } from 'react-redux';
 import actionsCity from '../storeRedux/actionRedux/cities';
@@ -21,6 +22,7 @@ export default function Cities() {
     //   .catch((err) => console.log(err));
   }, [reEffect]);
   console.log(cities)
+
   function handleFilter() {
     setReEffect(!reEffect);
   }
@@ -38,18 +40,22 @@ export default function Cities() {
           type="text"
           name="text"
           id="text"
+
           className="w-full p-2 mb-4 border border-gray-300 rounded shadow-sm focu:outline-none focus:ring focus:border-blue-300 "
+
           onKeyUp={handleFilter}
           placeholder="Search cities"
         />
         <div className=" flex flex-wrap">
           {cities.map((each) => (
 
+
             <CityCard key={each._id} city={each}
             src={each.photo}
             alt={each._id}
             text={each.city}
             id={each._id}
+
 
             />
           ))}
