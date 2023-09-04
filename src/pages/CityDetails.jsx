@@ -1,10 +1,24 @@
-import { useParams } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import actionsCity from '../storeRedux/actionRedux/cities';
+import DetailsCity from '../components/DetailCity.jsx';
+
+const { cityDetailRead } = actionsCity;
 
 export default function CityDetails() {
-  
-    const { city_id } = useParams()
-  //este hook se engancha a la URL para evaluar todos los parametros dinamicos que tiene la URL. Este hook devuelve un objeto donde cada CLAVE es la ruta dinamica definida en el enrutador y donde cada VALOR es el valor de la URL
+  const { city_id } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(cityDetailRead({ id: city_id }));
+  }, [dispatch, city_id]);
+
+  const city = useSelector((store) => store.cities.city);
+
   return (
-    <div className='text-white'>CityDetail of city {city_id} in construction</div>
-  )
+    <>
+      <DetailsCity city={city} />
+    </>
+  );
 }

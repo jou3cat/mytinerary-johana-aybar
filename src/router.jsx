@@ -4,8 +4,10 @@ import Cities from "./pages/Cities";
 import Login from "./pages/Login";
 import Itineraries from "./pages/Itineraries";
 import CityDetails from "./pages/CityDetails";
+import Activities from "./pages/Activities"
 import MainLayout from "./layouts/MainLayout";
-import NavLayout from "./layouts/NavLayout"
+import NavLayout from "./layouts/NavLayout";
+
 
 
 
@@ -21,7 +23,9 @@ const router = createBrowserRouter([
         { path: "/home", element: <Home />},
         { path: "/cities", element: <Cities />},
         { path: "/login", element: <Login />},
-        { path: "/city/:city_id", element: <CityDetails />}
+        { path: "/city/:city_id", element: <CityDetails />},
+        { path: "/itineraries/:city_id", element: <Itineraries />},
+        { path: "/activities", element: <Activities />}      
     ], 
   },
   {
@@ -32,10 +36,19 @@ const router = createBrowserRouter([
     }],
   },
   {
-    path: "/itineraries",
+    path: "/itineraries/:city_id",
     element: <Itineraries />
-  }
+  },
 
+  {
+    path: "/city/:city_id",
+    element: <CityDetails />
+  },
+
+  {
+   path: "/activities", 
+   element: <Activities /> 
+  }
 ]);
 
 

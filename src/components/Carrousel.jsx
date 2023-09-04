@@ -39,9 +39,9 @@ export default function Carrousel({data}) {
           <Card
             key={index}
             src={each.photo}
-            alt={each.id}
+            alt={each._id}
             text={each.city}
-            id={each.id}
+            id={each._id}
           />
         ))}
 
