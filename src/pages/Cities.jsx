@@ -1,19 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
-import apiUrl from '../apiUrl';
 import CityCard from '../components/CityCard.jsx';
+import { useSelector,useDispatch } from 'react-redux';
+import actionsCity from '../storeRedux/actionRedux/cities';
+const{citiesRead}=actionsCity
 
 export default function Cities() {
-  const [cities, setCities] = useState([]);
-  const text = useRef();
+ // const [cities, setCities] = useState([]);
+  const cities=useSelector(store=>store.cities.cities)
   const [reEffect, setReEffect] = useState(true);
+  const text = useRef();
+  const dispatch=useDispatch()
+
+  console.log(cities);
 
   useEffect(() => {
-    axios(apiUrl + 'cities?city=' + text.current.value)
-      .then((res) => setCities(res.data.response))
-      .catch((err) => console.log(err));
-  }, [reEffect]);
 
+    dispatch(citiesRead({text:text.current?.value}))
+    // axios(apiUrl + 'cities?city=' + text.current.value)
+    //   .then((res) => setCities(res.data.response))
+    //   .catch((err) => console.log(err));
+  }, [reEffect]);
+  console.log(cities)
   function handleFilter() {
     setReEffect(!reEffect);
   }
@@ -31,12 +38,13 @@ export default function Cities() {
           type="text"
           name="text"
           id="text"
-          className="w-full p-2 mb-4 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+          className="w-full p-2 mb-4 border border-gray-300 rounded shadow-sm focu:outline-none focus:ring focus:border-blue-300 "
           onKeyUp={handleFilter}
           placeholder="Search cities"
         />
         <div className=" flex flex-wrap">
           {cities.map((each) => (
+
             <CityCard key={each._id} city={each}
             src={each.photo}
             alt={each._id}
